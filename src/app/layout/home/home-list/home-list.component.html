@@ -1,0 +1,80 @@
+<div class="page-header">
+    <div class="container">
+          <h3 class="title">danh sách thư viện sách của chúng tôi </h3>
+    </div>
+  
+    <div class="breadcrumb-box">
+         <div class="container">
+               <ul class="breadcrumb">
+                     <li>
+                          <a href="/" ng-refle ct-router-link="/">Trang chủ</a>
+                     </li>
+  
+                      <li>
+                           <a href="/videos" ng-reflect-router-link="/videos">danh sách ảnh</a>
+                      </li>
+  
+               </ul>
+         </div>  
+    </div>
+  </div>
+  <div class="container">
+            <div class="col-md-12">
+                                 <div class="form-group">
+                                       <div class="btn-group">
+                                             
+                                              <button class="btn btn-primary" [routerLink]="['/themsach']" ><a  style="color:black;" ><i class="fa fa-plus" style="padding-right: 10px;">thêm mới </i></a></button>
+                                       </div>
+                                  </div>
+                              <form  [formGroup]="myForm" (ngSubmit)="Sreach()" >
+                                  <div class="form-group">
+                                          <div class="btn-group">
+                                                  <p>tìm kiếm mã </p>
+                                                  <input type="text" formControlName="masach" >
+                                                  <select formControlName="tentacgia" (change)="Sreach()">
+                                                            <option *ngFor="let item of listDataTacgia" [value]="item.id">
+                                                                  {{item.tentacgia}}
+                                                            </option>
+
+                                                  </select>
+
+                                                  <select formControlName="nhacungcap" (change)="Sreach()">
+                                                            <option *ngFor="let item of dataNhaxuatban" [value]="item.id">{{item.tennhaxb}}</option>
+                                                </select>
+                                                 <button type="submit"><a  style="color:black;" ><i class="fa fa-plus" style="padding-right: 10px;">tìm kiếm  </i></a></button>
+                                          </div>
+                                          </div>
+                                    </form>
+
+                                  
+
+                                
+
+                        <table class="table table-bordered table-hover" >
+                                    <thead>
+                                    <tr>
+                                            <th class="hidden-xs">ID</th>
+                                            <th>mã sách</th>
+                                            <th>tên sách</th>
+                                            <th>tác giả</th>
+                                            <th>nhà cung cấp</th>
+                                            <th>giá tiền</th>
+                                            <th>Sửa</th>
+                                            <th>xóa</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                         <tr *ngFor="let item of data">
+                                            <td>{{item.id}}</td>
+                                            <td>{{item.code}}</td>
+                                            <td>{{item.name}}</td>
+                                            <td>{{getName(item.tacgia)}}</td>
+                                            <td>{{getNhacungcap(item.nhacungcap)}}</td>
+                                            <td>{{item.giatien}} VNĐ</td>
+                                            <td><a href="#" class="text-center" [routerLink]="['/suasach']"  [queryParams]="{id: item.id }" ><i class="fa fa-edit"></i></a></td>
+                                            <td><a href="#" [routerLink]="['/']"  (click)="removeWord(item.id)"  class="text-center"><i class="fa fa-times"></i></a></td>
+                                          
+                                        </tr>
+                            </tbody>
+                         </table>
+            </div>

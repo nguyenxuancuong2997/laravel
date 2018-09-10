@@ -1,0 +1,51 @@
+<div class="container">
+    <form [formGroup]="myForm" class="form-signin" >
+      <div class="form-group" style="text-align: center">
+        <h4>ĐĂNG KÝ  HỆ THỐNG</h4>
+      </div>
+      <div class="form-group">
+            <p>tên dăng nhập</p>
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-envelope-o"></i>
+          </span>
+          <input  formControlName="email" type="text" class="form-control" placeholder="đăng ký  email" >
+          <div class="text-error" *ngIf="myForm.controls['email'].hasError('required') && myForm.controls['email'].touched">Không được để trống </div>
+  
+          <div class="text-error" *ngIf="myForm.controls['email'].hasError('email') && myForm.controls['email'].touched">Không đúng định dạng  </div>
+  
+        </div>
+      </div>
+      <div class="form-group">
+          <p>mật khẩu</p>
+
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-key"></i>
+          </span>
+          <input formControlName="pass" type="password" class="form-control" placeholder="đăng ký mật khẩu">
+          <div class="text-error" *ngIf="myForm.controls['pass'].hasError('required') && myForm.controls['pass'].touched">không được để trống</div>
+  
+        </div>
+      </div>
+
+
+      <div class="form-group">
+          <p>nhập lại mật khẩu </p>
+
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-key"></i>
+          </span>
+          <input formControlName="pass" type="password" class="form-control" placeholder="đăng ký mật khẩu">
+          <div class="text-error" *ngIf="myForm.controls['pass'].hasError('required') && myForm.controls['pass'].touched">không được để trống</div>
+  
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" [routerLink]="['']" type="submit" >
+          <i class="fa fa-sign-in" ></i>Đăng nhập</button>
+        <button class="btn btn-danger" style="margin-left: 25px;">đăng ký</button>
+      </div>
+    </form>
+  </div>

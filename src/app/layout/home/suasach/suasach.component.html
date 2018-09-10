@@ -1,0 +1,91 @@
+<div class="container">
+  <form [formGroup]="myForm" class="form-signin" (ngSubmit)="onSubmit()">
+    <div class="form-group" style="text-align: center">
+      <h4>Sửa sách vào hệ thống </h4>
+    </div>
+    <div class="form-group">
+      <p>mã sách </p>
+      <div class="input-group">
+        <span class="input-group-addon">
+          <i class="fa fa-envelope-o"></i>
+        </span>
+        <input formControlName="masach" type="text" class="form-control" placeholder="nhập mã sách">
+        <div class="text-error" *ngIf="myForm.controls['masach'].hasError('required') && myForm.controls['masach'].touched">Không được để trống </div>
+
+      </div>
+    </div>
+
+    <div class="form-group">
+      <p>tên sách</p>
+      <div class="input-group">
+        <span class="input-group-addon">
+          <i class="fa fa-envelope-o"></i>
+        </span>
+        <input formControlName="tensach" type="text" class="form-control" placeholder="tên sách">
+        <div class="text-error" *ngIf="myForm.controls['tensach'].hasError('required') && myForm.controls['tensach'].touched">Không được để trống </div>
+
+      </div>
+    </div>
+
+ 
+
+      <form [formGroup]="timkiem" (ngSubmit)="myFunction()">
+
+      <div class="form-group">
+          <p>tim kiem</p>
+             <div class="input-group">
+            <span class="input-group-addon">
+              <i class="fa fa-envelope-o"></i>
+            </span>
+            <input type="text" placeholder="Search.." formControlName="tkname" >
+        
+            <button type="submit" class="dropbtn">tim kiem</button>
+    
+          </div>
+        </div>
+      </form>
+
+    <div class="form-group">
+      <p>tác giả</p>
+         <div class="input-group">
+        <span class="input-group-addon">
+          <i class="fa fa-envelope-o"></i>
+        </span>
+        <select formControlName="tacgia">
+          <option *ngFor="let item of listDataTacgia" selected="item.id === myForm.get('tacgia').value" [value]="item.id">{{item.tentacgia}}</option>
+        </select>
+
+      </div>
+    </div>
+
+
+
+    <div class="form-group">
+      <p>nhà cung cấp </p>
+      <div class="input-group">
+        <span class="input-group-addon">
+          <i class="fa fa-envelope-o"></i>
+        </span>
+        <select formControlName="nhacungcap">
+          <option *ngFor="let item of dataNhaxuatban" selected="item.id === myForm.get('nhacungcap').value" [value]="item.id">{{item.tennhaxb}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <p>giá tiền</p>
+      <div class="input-group">
+        <span class="input-group-addon">
+          <i class="fa fa-envelope-o"></i>
+        </span>
+        <input formControlName="giatien" type="text" class="form-control" placeholder="giatien">
+        <div class="text-error" *ngIf="myForm.controls['giatien'].hasError('required') && myForm.controls['giatien'].touched">Không được để trống </div>
+
+      </div>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary" type="submit">
+        <i class="fa fa-sign-in"></i>Thêm sản phẩm</button>
+    </div>
+  </form>
+</div>

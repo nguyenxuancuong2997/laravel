@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+.form-signin{
+        input.ng-invalid.ng-touched:not([type=file]),
+        textarea.ng-invalid.ng-touched {
+        border: solid 1px #eb394f !important;
+    }
+    .text-error {
+        font-size: 10px;
+        text-align: left;
+        color: #d50000; 
+        margin-top: 9px;
+
+    }
+}

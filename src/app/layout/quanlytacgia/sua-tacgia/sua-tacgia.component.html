@@ -1,0 +1,71 @@
+<div class="container">
+    <form [formGroup]="myForm" class="form-signin" (ngSubmit)="onSubmit()">
+      <div class="form-group" style="text-align: center">
+        <h4>Thêm tác giả vào hệ thống </h4>
+      </div>
+      <div class="form-group">
+            <p>mã tác giả </p>
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-envelope-o"></i>
+          </span>
+         <input  formControlName="matacgia" type="text" class="form-control" placeholder="ma tac gia" >
+          <div class="text-error" *ngIf="myForm.controls['matacgia'].hasError('required') && myForm.controls['matacgia'].touched">Không được để trống </div>
+
+        </div>
+      </div>
+
+      <div class="form-group">
+          <p>tên tác giả</p>
+      <div class="input-group">
+        <span class="input-group-addon">
+          <i class="fa fa-envelope-o"></i>
+        </span>
+       <input  formControlName="tentacgia" type="text" class="form-control" placeholder="ten tac gia" >
+        <div class="text-error" *ngIf="myForm.controls['tentacgia'].hasError('required') && myForm.controls['tentacgia'].touched">Không được để trống </div>
+        
+      </div>
+      </div>
+
+      <div class="form-group">
+          <p>nơi sống</p>
+      <div class="input-group">
+        <span class="input-group-addon">
+          <i class="fa fa-envelope-o"></i>
+        </span>
+       <input  formControlName="noisong" type="text" class="form-control" placeholder="noi song" >
+        <div class="text-error" *ngIf="myForm.controls['noisong'].hasError('required') && myForm.controls['noisong'].touched">Không được để trống </div>
+        
+      </div>
+      </div>
+
+
+    <div class="form-group">
+        <p>điện thoại</p>
+      <div class="input-group">
+        <span class="input-group-addon">
+          <i class="fa fa-envelope-o"></i>
+        </span>
+      <input  formControlName="dienthoai" type="text" class="form-control" placeholder="điện thoại	" >
+        <div class="text-error" *ngIf="myForm.controls['dienthoai'].hasError('required') && myForm.controls['dienthoai'].touched">Không được để trống </div>
+        
+      </div>
+  </div>
+
+  <div class="form-group">
+      <p>ngày sinh</p>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <i class="fa fa-envelope-o"></i>
+      </span>
+    <input  formControlName="ngaysinh" type="text" class="form-control" placeholder="ngày sinh	" >
+      <div class="text-error" *ngIf="myForm.controls['ngaysinh'].hasError('required') && myForm.controls['ngaysinh'].touched">Không được để trống </div>
+      
+    </div>
+</div>
+  <div class="form-group">
+        <button type="submit" class="btn btn-primary">
+          <i class="fa fa-sign-in" ></i>Thêm sản phẩm</button>
+      </div>
+    </form>
+  </div>
